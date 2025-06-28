@@ -21,15 +21,14 @@ jobs:
             username: ${{ github.actor }}
             password: ${{ secrets.GITHUB_TOKEN }}
 
-        - name: Installing packages from requirements.txt
-          run: pip install --no-cache-dir -i https://pypi.org/simple/ -r requirements.txt
-
-        - name: Running pytest
-          run: pytest
-        
         - name: Build and push Docker image
           uses: docker/build-push-action@v6
           with:
             push: true
             tags: ghcr.io/barden-dev/testflaskdocker:latest
         
+        - name: Installing packages from requirements.txt
+          run: pip install --no-cache-dir -i https://pypi.org/simple/ -r requirements.txt
+
+        - name: Running pytest
+          run: pytest
