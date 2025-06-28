@@ -30,7 +30,7 @@ jobs:
         - name: Installing packages from requirements.txt
           run: pip install --no-cache-dir -i https://pypi.org/simple/ -r requirements.txt
 
-        - name: Running pytest
+        - name: Installing redis-server
           run: sudo apt-get install redis-server
         
         - name: Running pytest
