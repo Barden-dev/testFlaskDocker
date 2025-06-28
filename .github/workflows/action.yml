@@ -31,4 +31,7 @@ jobs:
           run: pip install --no-cache-dir -i https://pypi.org/simple/ -r requirements.txt
 
         - name: Running pytest
+          run: sudo apt-get install redis-server
+        
+        - name: Running pytest
           run: pytest
