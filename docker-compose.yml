@@ -9,6 +9,8 @@ services:
             - 5000:5000
         volumes:
             - .:/app
+        environment:
+            - redis_host=redis
     
     redis:
         image: "redis:latest"
