@@ -3,3 +3,4 @@ redis
 pytest
 dotenv
 gunicorn
+python-dotenv
