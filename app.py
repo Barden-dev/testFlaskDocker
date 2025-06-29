@@ -12,6 +12,8 @@ app = Flask(__name__)
 load_dotenv()
 redis_host = os.getenv('redis_host', 'redis')
 
+print(redis_host)
+
 cache = redis.Redis(host=redis_host, port=6379)
 
 def get_hit_count():
