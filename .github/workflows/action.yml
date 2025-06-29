@@ -8,14 +8,14 @@ on:
 jobs:
     docker:
       runs-on: ubuntu-latest
+      permissions:
+        contents: read
+        packages: write
       services:
         redis:
           image: redis:7-alpine
           options: >-
             --health-cmd "redis-cli ping" --health-interval 10s --health-timeout 5s --health-retries 5
-      permissions:
-        contents: read
-        packages: write
       steps:
         - uses: actions/checkout@v4
 
@@ -25,7 +25,7 @@ jobs:
         - name: Running pytest
           run: pytest
           env:
-            redis_host: redis
+            redis_host: localhost
 
         - name: Login to GitHub Container Registry
           if: success()
